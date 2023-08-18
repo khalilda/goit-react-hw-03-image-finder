@@ -23,7 +23,7 @@ export class App extends Component {
     });
   };
 
-  handleSubmit = searchValue => {
+  handleSearch = searchValue => {
     this.setState({ searchValue });
   };
 
@@ -31,7 +31,7 @@ export class App extends Component {
     const { isOpenModal, currentImage } = this.state;
     return (
       <main>
-        <Searchbar onSubmit={this.handleSubmit} />
+        <Searchbar onSubmit={this.handleSearch} />
         <ImageGallery value={this.state.searchValue} onClick={this.openModal} />
         {isOpenModal && (
           <Modal onClose={this.toggleModal} currentImage={currentImage} />
