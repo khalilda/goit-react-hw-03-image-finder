@@ -24,7 +24,7 @@ export class ImageGallery extends Component {
     this.setState({ status: Status.LOADING });
 
     try {
-      const data = await getImage(this.props.Searchvalue);
+      const data = await getImage(this.props.value);
       this.setState({ images: data, status: Status.SUCCESS });
     } catch {
       this.setState({ status: Status.ERROR });
@@ -32,8 +32,8 @@ export class ImageGallery extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    if (prevProps.value !== this.props.SearchValue) {
-      const newData = await getImage(this.props.SearchValue);
+    if (prevProps.value !== this.props.value) {
+      const newData = await getImage(this.props.value);
       this.setState({ images: newData });
     }
 
@@ -57,7 +57,6 @@ export class ImageGallery extends Component {
 
     return (
       <>
-        
         {status === Status.ERROR && <p>ERROR</p>}
 
         {(status === Status.LOADING || status === Status.INIT) && <Loader />}
