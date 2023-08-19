@@ -34,19 +34,27 @@ export class App extends Component {
   };
 
 
-  componentDidUpdate = async (prevProps, prevState) => {
-    console.log('componentDidUpdate called');
-  
-    const prevQuery = prevState.query;
-    const searchQuery = this.state.query;
-    const prevPage = prevState.page;
-    const nextPage = this.state.page;
-  
-    if (prevQuery !== searchQuery || prevPage !== nextPage) {
-      console.log('Fetching new data');
-      this.fetchGallery(this.state.query, this.state.page);
+  componentDidUpdate(prevProps, prevState){
+    if(this.state.page !== prevState.page || this.state.query!== prevState.query ){
+      fetch()
     }
-  };
+  }
+
+
+
+  // componentDidUpdate = async (prevProps, prevState) => {
+  //   console.log('componentDidUpdate called');
+  
+  //   const prevQuery = prevState.query;
+  //   const searchQuery = this.state.query;
+  //   const prevPage = prevState.page;
+  //   const nextPage = this.state.page;
+  
+  //   if (prevQuery !== searchQuery || prevPage !== nextPage) {
+  //     console.log('Fetching new data');
+  //     this.fetchGallery(this.state.query, this.state.page);
+  //   }
+  // };
   // componentDidUpdate = async (prevProps, prevState) => {
   //   const prevQuery = prevState.query;
   //   const searchQuery = this.state.query;
