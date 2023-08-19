@@ -1,14 +1,19 @@
 import { Component } from 'react';
 import { Notify } from 'notiflix';
-
 import s from './App.module.css';
-
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
 import { fetchHitsByQuery } from './services/api';
+
+
+
+
+
+
+
 
 export class App extends Component {
   constructor() {
