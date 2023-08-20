@@ -26,7 +26,7 @@ export class App extends Component {
 
   changeQuery = newQuery => {
     this.setState({
-      query: `${Date.now()}/${newQuery}`,
+      query: newQuery,
       images: [],
       page: 1
     });
@@ -36,51 +36,16 @@ export class App extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if(this.state.page !== prevState.page || this.state.query!== prevState.query ){
-      fetch()
+      this.fetchGallery()
     }
   }
 
 
 
-  // componentDidUpdate = async (prevProps, prevState) => {
-  //   console.log('componentDidUpdate called');
-  
-  //   const prevQuery = prevState.query;
-  //   const searchQuery = this.state.query;
-  //   const prevPage = prevState.page;
-  //   const nextPage = this.state.page;
-  
-  //   if (prevQuery !== searchQuery || prevPage !== nextPage) {
-  //     console.log('Fetching new data');
-  //     this.fetchGallery(this.state.query, this.state.page);
-  //   }
-  // };
-  // componentDidUpdate = async (prevProps, prevState) => {
-  //   const prevQuery = prevState.query;
-  //   const searchQuery = this.state.query;
-  //   const prevPage = prevState.page;
-  //   const nexPage = this.state.page;
-
-  //   if (prevQuery !== searchQuery || prevPage !== nexPage) {
-  //     this.loadResult();
-  //   }
-  // };
-
-  // onSubmit = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     query: e.target.search.value,
-  //     isLoading: true,
-  //     images: [],
-  //   });
-  //   this.fetchGallery(e.target.search.value, this.state.page);
-  // };
-
   onNextPage = () => {
     this.setState({
       page: this.state.page + 1,
     });
-    this.fetchGallery(this.state.query, this.state.page + 1);
   };
 
   onClickImage = url => {
