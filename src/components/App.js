@@ -36,7 +36,7 @@ export class App extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if(this.state.page !== prevState.page || this.state.query!== prevState.query ){
-      this.fetchGallery()
+      this.fetchGallery(this.state.query, this.state.page)
     }
   }
 
